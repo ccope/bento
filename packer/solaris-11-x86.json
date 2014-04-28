@@ -6,11 +6,7 @@
         "scripts/solaris/update.sh",
         "scripts/solaris/vagrant.sh"
       ],
-      "override": {
-        "virtualbox-iso": {
-          "execute_command": "echo 'vagrant'|sudo -S bash {{.Path}}"
-        }
-      }
+      "execute_command": "echo 'vagrant'|sudo -S bash {{.Path}}"
     }
   ],
   "builders": [
