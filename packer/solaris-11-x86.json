@@ -2,10 +2,18 @@
   "provisioners": [
     {
       "type": "shell",
+      "environment_vars": [
+        "CHEF_VERSION={{user `chef_version`}}"
+      ],
+    "variables": {
+      "chef_version": "provisionerless"
+    },
       "scripts": [
         "scripts/solaris/update.sh",
         "scripts/solaris/vmtools.sh",
-        "scripts/common/vagrant.sh"
+        "scripts/common/vagrant.sh",
+        "scripts/common/chef.sh",
+        "scripts/common/minimize.sh"
       ],
       "execute_command": "echo 'vagrant'|sudo -S bash {{.Path}}"
     }
@@ -125,6 +133,7 @@
   ],
   "post-processors": [
     {
+      "output": "../builds/{{.Provider}}/opscode_solaris-11.1_chef-{{user `chef_version`}}.box",
       "type": "vagrant"
     }
   ]
