@@ -35,9 +35,8 @@
         "mkdir /system/volatile/profile;<wait>",
         "cp profile.xml /system/volatile/profile/profile.xml;<wait>",
         "svcadm enable svc:/application/auto-installer:default;<wait>",
-        "<enter><wait>",
-        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
-        "<enter><wait>",
+        "<enter><wait10><wait><wait>",
+	"<enter><wait>",
         "tail -f /var/svc/log/application-auto-installer\\:default.log<enter><wait>"
       ],
       "boot_wait": "5s",
@@ -55,6 +54,8 @@
       "shutdown_timeout": "10m",
       "guest_additions_mode": "attach",
       "virtualbox_version_file": ".vbox_version",
+      "vm_name": "packer-solaris-11.1-x86_64",
+      "output_directory": "packer-solaris-11.1-x86_64-virtualbox",
       "vboxmanage": [
         [
           "modifyvm",
