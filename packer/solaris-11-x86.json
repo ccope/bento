@@ -4,7 +4,8 @@
       "type": "shell",
       "scripts": [
         "scripts/solaris/update.sh",
-        "scripts/solaris/vagrant.sh"
+        "scripts/solaris/vmtools.sh",
+        "scripts/common/vagrant.sh"
       ],
       "execute_command": "echo 'vagrant'|sudo -S bash {{.Path}}"
     }
